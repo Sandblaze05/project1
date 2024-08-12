@@ -2,8 +2,15 @@ import React from 'react'
 import './LoginForm.css'
 import { FaUser } from 'react-icons/fa'
 import { FaLock } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const LoginForm=()=>{
+    const [goToContact, setGoToContact] = React.useState(false);
+    if(goToContact){
+        return <Navigate to="/project1/SignUpform"/>;
+    }
     return(
         <div className='wrapper'>
             <form action=''>
@@ -24,7 +31,7 @@ const LoginForm=()=>{
 
                 <button type='submit'>Login</button>
                 <div className="register-link">
-                    <p>Don't have an account? <a href='#'>Sign Up</a></p>
+                    <p>Don't have an account? <a href='' onClick={()=>{setGoToContact(true);}}>Sign Up</a></p>
                 </div>
 
             </form>
